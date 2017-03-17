@@ -21,5 +21,6 @@
   <run_depend>turtlebot3_fake</run_depend>
   <run_depend>turtlebot3_slam</run_depend>
   <run_depend>turtlebot3_navigation</run_depend>
+  <run_depend>people_detect</run_depend>
   <export><metapackage/></export>
 </package>
