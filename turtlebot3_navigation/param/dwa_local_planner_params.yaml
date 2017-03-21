@@ -1,42 +1,49 @@
-DWAPlannerROS:
+TrajectoryPlannerROS:
+  
 
+  dwa: true
 # Robot Configuration Parameters
-  max_vel_x: 0.20
-  min_vel_x: 0.1
+  max_vel_x: 0.18 #0.2
+  min_vel_x: 0.1 #0.1
 
   max_vel_y: 0.0
   min_vel_y: 0.0
+ 
+  min_vel_theta: -0.80
+  max_vel_theta: 0.80
 
-  max_trans_vel:  0.22
-  min_trans_vel:  0.1
-  trans_stopped_vel: 0.1
-
-  max_rot_vel: 5.0
-  min_rot_vel: 1.0
+  max_trans_vel:  0.18 #0.22
+  min_trans_vel:  -0.18 #0.1
   rot_stopped_vel: 0.5
 
-  acc_lim_x: 0.4
-  acc_lim_theta: 3.0
+  acc_lim_x: 0.8
+  acc_lim_theta: 1.1 #3.0
   acc_lim_y: 0.0
+
+  escape_vel: -0.15
 
 # Goal Tolerance Parametes
   yaw_goal_tolerance: 0.3
   xy_goal_tolerance: 0.10
+  latch_xy_goal_toleranc: true # Added (If goal tolerance is latched, if the robot ever reaches the goal xy location it will simply rotate in place)
+
 
 # Forward Simulation Parameters
-  sim_time: 1.0
-  vx_samples: 6
-  vy_samples: 1
-  vtheta_samples: 20
-
+  sim_time: 3.5
+  vx_samples: 15
+  vy_samples: 0
+  vtheta_samples: 30 #20
+  sim_granularity: 0.05
+  angular_sim_granularity: 0.0928318530716
+  
 # Trajectory Scoring Parameters
-  path_distance_bias: 74.0
-  goal_distance_bias: 34.0
-  occdist_scale: 0.2
-  forward_point_distance: 0.325
-  stop_time_buffer: 0.2
-  scaling_speed: 0.25
-  max_scaling_factor: 0.2
+  path_distance_bias: 32.0  #74
+  goal_distance_bias: 20.0  #34
+  occdist_scale: 0.2 #0.2
+#  forward_point_distance: 0.325 #0.325
+#  stop_time_buffer: 0.2
+#  scaling_speed: 0.15
+#  max_scaling_factor: 0.2
 
 # Oscillation Prevention Parameters
   oscillation_reset_dist: 0.05
@@ -44,4 +51,14 @@ DWAPlannerROS:
 # Debugging
   publish_traj_pc : true
   publish_cost_grid_pc: true
+  publish_cost_grid: true
   global_frame_id: odom
+
+  reset_distance: 4.0
+# Global Plan parameters
+#  prune_plan: true
+  holonomic_robot: false
+  meter_scoring: true #added
+
+
+
